@@ -1,0 +1,1 @@
+// Aqui van las rutas principales de get (Get Inicio, Get Registro, Get Recetas)
