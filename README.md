@@ -11,4 +11,7 @@ Proyecto Ciclo 4 MisionTic 20202
 # IMPORTANTE
 
 Cada vez que se realicen cambios no te olvides de hacer los comandos en este orden:
-- git add .
+- <font style="font-family: consolas;">git pull</font> (Obtener actualizaciones)
+- <font style="font-family: consolas;">git add .</font> (Agregar tus actializaciones)
+- <font style="font-family: consolas;">git commit -m 'nombre_commit'</font> (Prepara tu commit)
+- <font style="font-family: consolas;">git push</font> (Subir tus actualizaciones al repositorio)
