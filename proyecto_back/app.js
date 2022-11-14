@@ -23,7 +23,7 @@ database.mongoConnect();
 
 // Rutas
 //app.use('/',indexRouter);
-//app.use('/menu',menuRouter);
+app.use('/menu',menuRouter);
 app.use('/usuario', usuarioRouter);
 app.use('/receta', recetaRouter);
 
