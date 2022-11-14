@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const URI = 'TU_URI';
+const URI = 'colocar_tu_uri';
 
 exports.mongoConnect = () => {
     const mongoStringConnection = URI;
