@@ -7,3 +7,8 @@ Proyecto Ciclo 4 MisionTic 20202
 - Se creara la carpeta *node_modules* y todo lo necesario para ser ejecutado.
 - Para iniciar el servicio del backend usar el comando <font style="font-family: consolas;">__npm run dev__</font> , con nodemoon se van a escuchar todos los cambios que se hagan.
 - Para iniciar el servicio en el front end usar el comando <font style="font-family: consolas;">__npm start__</font> , tambien se escucharan todos los cambios que sean realizados.
+
+# IMPORTANTE
+
+Cada vez que se realicen cambios no te olvides de hacer los comandos en este orden:
+- git add .
