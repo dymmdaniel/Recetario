@@ -18,12 +18,12 @@ exports.create = function(req,res){
         if(err){
         console.log=false,
         response.exito=false,
-        response.msg= "error al crear la receta"+err
+        response.msg= "Error al crear el menú"
         res.json(response)
         return;
         }
         response.exito=true,
-        response.msg= "la receta se creo correctamente"
+        response.msg= "El menú ha sido creado"
         res.json(response)
     })
 
