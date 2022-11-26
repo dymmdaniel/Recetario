@@ -1,0 +1,31 @@
+#titulo{
+    font-family: "Open Sans";
+    color: #d5985f;
+}
+
+#prim{
+    font-family: "Open Sans";
+    color: #e4b68c;
+    margin-top: auto;
+}
+
+#segu{
+    font-family: "Open Sans";
+    color: #e4c4a6;
+    margin-top: 6%;
+}
+#ter{
+    font-family: "Open Sans" ;
+    color: #ffffff;
+    font-weight: 900;
+   
+}
+
+
+#arc{
+    background-color: #d5985f;
+    border-radius: 30px;
+    height: 35px;
+
+    
+}
