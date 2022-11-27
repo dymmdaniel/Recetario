@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar,Card } from "react-bootstrap";
+import { Container, Nav, Navbar,Card ,NavDropdown} from "react-bootstrap";
 import './navbar.css'
 export default class navbar extends React.Component {
   constructor(props) {
@@ -16,12 +16,19 @@ export default class navbar extends React.Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#features"><h5 id="prim">Descubre</h5></Nav.Link>
-              <Nav.Link href="#pricing"><h6 id="segu">Categoria</h6></Nav.Link>
+
+              <NavDropdown title="Categoria" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1" id="item">Desayuno</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1" id="item">Medias Nueves</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1" id="item">Almuerzo</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1" id="item">Onces</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1" id="item">Cena</NavDropdown.Item>
+              </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets"><h6 id="prim">Iniciar Sesión</h6></Nav.Link>
+              <Nav.Link href="/login"><h6 id="prim">Iniciar Sesión</h6></Nav.Link>
               <Card id="arc">
-              <Nav.Link  href="#memes"><h6 id="ter">Registrarse</h6> </Nav.Link>
+              <Nav.Link  href="/registro"><h6 id="ter">Registrarse</h6> </Nav.Link>
               </Card>
             </Nav>
           </Navbar.Collapse>

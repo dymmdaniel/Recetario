@@ -9,16 +9,22 @@
     margin-top: auto;
 }
 
-#segu{
+#basic-nav-dropdown{
     font-family: "Open Sans";
     color: #e4c4a6;
-    margin-top: 6%;
+    
+   
 }
 #ter{
     font-family: "Open Sans" ;
     color: #ffffff;
     font-weight: 900;
    
+}
+#item{
+    background-color: #e4c4a6;
+    font-family: "Open Sans";
+    color: #ffffff;
 }
 
 
