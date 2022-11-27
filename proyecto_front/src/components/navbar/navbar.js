@@ -9,7 +9,6 @@ export default class navbar extends React.Component {
 
   render() {
     return (
-    
       <Navbar id="Nav">
         <Container>
           <Navbar.Brand href="#home"><h3 id="titulo">EZzz Gourmet</h3></Navbar.Brand>
