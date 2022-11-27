@@ -1,6 +1,6 @@
-const Usuario = require('../models/Usuario');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+const Usuario = require('../models/Usuario');
 
 exports.login = function (req, res, next){
 
@@ -23,26 +23,38 @@ exports.login = function (req, res, next){
             },
             "_recret_",
                 {expiresIn: '12h'}
-            )
+            );
+            res.json(response);
+        }else{
+           res.status(401); // Unauthorized
+           res.json({
+            mensaje: "Contrase y/o usuario invalido"
+           });
         }
-        res.json(response);
+        
     }
     );
 }
 
 exports.registro = function (req, res) {
+    let hashedpass = crypto.createHash("sha512").update(req.body.pass).digest("hex");
     const {nombre,usuario,pass} = req.body;
-    const nuevoUsuario = new Usuario({nombre,usuario,pass}); 
+    const nuevoUsuario = new Usuario({
+        nombre,
+        usuario,
+        pass: hashedpass
+    }); 
     nuevoUsuario.save(function(err){
         if(err){
-        console.log=false,
-        response.exito=false,
-        response.msg= "Error al crear el usuario"
-        res.json(response)
-        return;
+            console.log=false;
+            res.json({
+                mensaje: "Error al crear el usuario"
+            })
+        }else{
+            res.json({
+                mensaje: "El usuario se ha creado correctamente"
+            })
         }
-        response.exito=true,
-        response.msg= "El usuario se ha creado correctamente"
-        res.json(response)
     });
 }
+

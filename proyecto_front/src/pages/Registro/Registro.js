@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,17 +10,54 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+
+import axios from 'axios';
 
 const theme = createTheme();
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+
 export default function Registro() {
+  const [open, setOpen] = React.useState(false);
+  const [severity,setSeverity] = React.useState(false);
+  const [alertMensaje,setAlertMensaje] = React.useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    var usuario = {
+      nombre: data.get('nombre')+' '+data.get('apellido'),
+      usuario: data.get('usuario'),
+      pass: data.get('pass')
+    }
+    alert(usuario.nombre+' '+usuario.usuario+' '+usuario.pass);
+    axios.post('/usuario/registro',usuario)
+    .then(res=>{
+      alert(res.data);
+      setAlertMensaje("La cuenta se ha creado correctamente! Por favor ingresa.");
+      setSeverity("success");
+      setOpen(true);
+    })
+    .then(err=>{
+      setAlertMensaje("La cuenta no se ha podido crear, intenta nuevamente.");
+      setSeverity("error");
+      setOpen(true);
     });
+      /*setAlertMensaje("La cuenta se ha creado correctamente! Por favor ingresa.");
+      setSeverity("success");
+      setOpen(true);*/
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
   };
 
   return (
@@ -46,10 +83,10 @@ export default function Registro() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="nombre"
                   required
                   fullWidth
-                  id="firstName"
+                  id="nombre"
                   label="Nombre"
                   autoFocus
                 />
@@ -58,9 +95,9 @@ export default function Registro() {
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
+                  id="apellido"
                   label="Apellido"
-                  name="lastName"
+                  name="apellido"
                   autoComplete="family-name"
                 />
               </Grid>
@@ -68,20 +105,20 @@ export default function Registro() {
                 <TextField
                   required
                   fullWidth
-                  id="email"
-                  label="Correo"
-                  name="email"
-                  autoComplete="email"
+                  id="usuario"
+                  label="Usuario"
+                  name="usuario"
+                  autoComplete="user"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
+                  name="pass"
                   label="Contraseña"
                   type="password"
-                  id="password"
+                  id="pass"
                   autoComplete="new-password"
                 />
               </Grid>
@@ -89,10 +126,10 @@ export default function Registro() {
                 <TextField
                   required
                   fullWidth
-                  name="password"
+                  name="pass2"
                   label="Repita la Contraseña"
                   type="password"
-                  id="password"
+                  id="pass2"
                   autoComplete="new-password"
                 />
               </Grid>
@@ -115,6 +152,11 @@ export default function Registro() {
           </Box>
         </Box>
       </Container>
+      <Snackbar anchorOrigin={{vertical: 'bottom',horizontal: 'center'}}  open={open} autoHideDuration={4000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
+          {alertMensaje}
+        </Alert>
+      </Snackbar>
     </ThemeProvider>
   );
 }
