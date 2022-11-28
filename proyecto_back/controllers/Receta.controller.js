@@ -35,7 +35,7 @@ exports.create = function(req,res){
 
 exports.find = function(req,res){
     Receta.find(function(err,recetas){
-        res.json(recetas)
+        res.json(recetas);
     })
 }
 

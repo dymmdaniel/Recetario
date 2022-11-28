@@ -1,10 +1,10 @@
 import React from 'react';
 import './Receta.css'
 
-export default function Receta(){
+export default function Receta({receta}){
     return(
-        <div className='Container'>
-            <div className='card' id="car">
+        <div className='col'>
+          <div className='card' id="car">
             <div
               id="imagen"
               style={{
@@ -13,11 +13,11 @@ export default function Receta(){
                 width: "200px",
               }}
             ></div>
-            <h5 id="tit">Nombre del item</h5>
-            <h5 id="segu">Descripcion</h5>
-            <h6 id="segu">Pequeña Descripcion</h6>
-            <h6 id="segu">Categoria</h6>
-            <h6 id="segu">6/10</h6>
+            <h5 id="tit">{receta.nombre}</h5>
+            <h5 id="segu">{receta.descripcion}</h5>
+            <h6 id="segu">{receta.dificultad}</h6>
+            <h6 id="segu">{receta.categoria}</h6>
+            <h6 id="segu">{receta.porciones}</h6>
           </div>
         </div>
     )
