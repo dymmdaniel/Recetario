@@ -138,7 +138,7 @@ export default function Login() {
         </Grid>
         <Snackbar anchorOrigin={{vertical: 'bottom',horizontal: 'center'}}  open={open} autoHideDuration={4000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
-              La contraseña y/o el usuario, son invalidos
+          La contraseña y/o el usuario, son invalidos
         </Alert>
       </Snackbar>
       </ThemeProvider>
