@@ -10,6 +10,11 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+
+
+import axios from 'axios';
 
 function Copyright(props) {
     return (
@@ -21,7 +26,13 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 export default function Login() {
+  const [severity,setSeverity] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
     const handleSubmit = (event) => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
@@ -29,8 +40,27 @@ export default function Login() {
         email: data.get('email'),
         password: data.get('password'),
       });
+      var usuario = {
+        usuario: data.get('usuario'),
+        pass: data.get('pass')
+      }
+      axios.post('/api/usuario/login',usuario)
+      .then(res=>{
+        alert(res.data.token);
+      })
+      .catch(err=>{
+        setSeverity("error");
+        setOpen(true);
+      });
     };
   
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
     return (
       <ThemeProvider theme={theme}>
         <Grid container component="main" sx={{ height: '100vh' }}>
@@ -70,20 +100,20 @@ export default function Login() {
                   margin="normal"
                   required
                   fullWidth
-                  id="email"
-                  label="Correo"
-                  name="email"
-                  autoComplete="email"
+                  id="usuario"
+                  label="Usuario"
+                  name="usuario"
+                  autoComplete="user"
                   autoFocus
                 />
                 <TextField
                   margin="normal"
                   required
                   fullWidth
-                  name="password"
+                  name="pass"
                   label="Contraseña"
                   type="password"
-                  id="password"
+                  id="pass"
                   autoComplete="current-password"
                 />
                 <Button
@@ -106,6 +136,11 @@ export default function Login() {
             </Box>
           </Grid>
         </Grid>
+        <Snackbar anchorOrigin={{vertical: 'bottom',horizontal: 'center'}}  open={open} autoHideDuration={4000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
+              La contraseña y/o el usuario, son invalidos
+        </Alert>
+      </Snackbar>
       </ThemeProvider>
     );
   }

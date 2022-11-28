@@ -7,7 +7,6 @@ exports.login = function (req, res, next){
     let hashedpass = crypto.createHash("sha512").update(req.body.pass).digest("hex");
 
     Usuario.findOne({
-        nombre : req.body.nombre,
         usuario : req.body.usuario,
         pass: hashedpass
     },
@@ -18,7 +17,6 @@ exports.login = function (req, res, next){
         if(usuario!=null){
             response.token = jwt.sign({
                 id:usuario._id,
-                nombre:usuario.nombre,
                 usuario:usuario.usuario
             },
             "_recret_",

@@ -29,27 +29,28 @@ export default function Registro() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    var usuario = {
-      nombre: data.get('nombre')+' '+data.get('apellido'),
-      usuario: data.get('usuario'),
-      pass: data.get('pass')
+    if(data.get('pass')==data.get('pass2')){
+      var usuario = {
+        nombre: data.get('nombre')+' '+data.get('apellido'),
+        usuario: data.get('usuario'),
+        pass: data.get('pass')
+      }
+      axios.post('/api/usuario/registro',usuario)
+      .then(res=>{
+        setAlertMensaje("La cuenta se ha creado correctamente! Por favor ingresa.");
+        setSeverity("success");
+        setOpen(true);
+      })
+      .catch(err=>{
+        setAlertMensaje("La cuenta no se ha podido crear, intenta nuevamente.");
+        setSeverity("error");
+        setOpen(true);
+      });
+    }else{
+        setAlertMensaje("Las contraseñas no coinciden");
+        setSeverity("error");
+        setOpen(true);
     }
-    alert(usuario.nombre+' '+usuario.usuario+' '+usuario.pass);
-    axios.post('/usuario/registro',usuario)
-    .then(res=>{
-      alert(res.data);
-      setAlertMensaje("La cuenta se ha creado correctamente! Por favor ingresa.");
-      setSeverity("success");
-      setOpen(true);
-    })
-    .then(err=>{
-      setAlertMensaje("La cuenta no se ha podido crear, intenta nuevamente.");
-      setSeverity("error");
-      setOpen(true);
-    });
-      /*setAlertMensaje("La cuenta se ha creado correctamente! Por favor ingresa.");
-      setSeverity("success");
-      setOpen(true);*/
   };
 
   const handleClose = (event, reason) => {
