@@ -1,0 +1,28 @@
+#cent{
+    align-items: center;
+}
+#car{
+    max-width: 100%;
+    max-height: 100%;
+    width:  300px;
+    height: 350px;
+    align-items: center;
+    margin-left: 8%;
+    margin-top: 8%;
+    background-color:#efc396;
+    
+}
+#imagen{
+    margin-top: 8%;
+    border-radius: 10px;
+}
+#prim{
+    font-family: "Open Sans";
+    color: #ffffff;
+    margin-top: 5%;
+}
+#segu{
+   text-align: left;
+   font-family: "Open Sans";
+    color: #ffffff;
+}
