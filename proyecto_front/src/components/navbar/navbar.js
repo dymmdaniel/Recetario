@@ -11,12 +11,11 @@ export default class navbar extends React.Component {
     return (
       <Navbar id="Nav">
         <Container>
-          <Navbar.Brand href="#home"><h3 id="titulo">EZzz Gourmet</h3></Navbar.Brand>
+          <Navbar.Brand href="/"><h3 id="titulo">EZzz Gourmet</h3></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features"><h5 id="prim">Descubre</h5></Nav.Link>
-
+              <Nav.Link href="#features"><h5 id="prim" >Descubre</h5></Nav.Link>
               <NavDropdown title="Categoria" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1" id="item">Desayuno</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1" id="item">Medias Nueves</NavDropdown.Item>
