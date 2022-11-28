@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/navbar/navbar';
 import Footer from './components/Footer/Footer'; 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-
 import Login from './pages/Login/Login';
 import Registro from './pages/Registro/Registro';
 import Inicio from './pages/Inicio/Inicio';
