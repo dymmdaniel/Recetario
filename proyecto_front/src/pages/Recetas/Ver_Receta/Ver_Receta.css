@@ -1,0 +1,78 @@
+#bicolor{
+    background-image: linear-gradient(90deg, #f9e3cb,#d5985f);
+    height: 50px;
+}
+#prim_di{
+    text-align: center;
+    color: #ffffff;
+    background-color: #c4a385;
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 50px;
+    padding-top: 5px;
+   
+}
+#segu_di{
+    text-align: center;
+    color: #000000;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 50px;
+    padding-top: 5px;
+}
+#ter{
+    
+    font-family: "Open Sans" ;
+    color: #ffffff;
+    font-weight: 900;
+   
+}
+#cur{
+    
+    font-family: "Open Sans" ;
+    color: #000000;
+    font-weight: 900;
+   
+}
+#imag{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+#ter_di{
+    text-align: center;
+    background-color: #c4a385;
+    font-family: "Open Sans" ;
+    color: #ffffff;
+    margin-top: 10px;
+
+}
+#cur_di{
+    text-align: center;
+    background-color: #f9e3cb;
+    font-family: "Open Sans" ;
+    color: #000000;
+    margin-top: 10px;
+    height: 200px;
+    padding: 20px;
+}
+#qui_di{
+    padding-top: 30px;
+}
+#sex_di{
+    text-align: center;
+    background-color: #f9e3cb;
+    font-family: "Open Sans" ;
+    color: #000000;
+    margin-top: 10px;
+    height: 400px;
+    padding: 20px;
+}
+#pin{
+    font-family: "Open Sans" ;
+    color: #000000;
+}

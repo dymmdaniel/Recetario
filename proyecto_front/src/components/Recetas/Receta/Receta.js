@@ -1,8 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Receta.css'
 
 export default function Receta({receta}){
     return(
+      <Link to={`/receta/${receta.nombre}`}>
         <div className='col'>
           <div className='card' id="car">
             <div
@@ -20,5 +22,6 @@ export default function Receta({receta}){
             <h6 id="segu">{receta.porciones}</h6>
           </div>
         </div>
+      </Link>
     )
 }
