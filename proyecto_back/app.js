@@ -25,7 +25,7 @@ database.mongoConnect();
 
 // Rutas
 //app.use('/',indexRouter);
-app.use('/menu',menuRouter);
+app.use('/api/menu',menuRouter);
 app.use('/api/usuario', usuarioRouter);
 app.use('/api/receta', recetaRouter);
 //app.use(auth);

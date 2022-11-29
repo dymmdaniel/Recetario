@@ -33,6 +33,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 export default function Login() {
   const [severity,setSeverity] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [mensajePup,setMensajePup] = React.useState(false);
     const handleSubmit = (event) => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
@@ -46,9 +47,12 @@ export default function Login() {
       }
       axios.post('/api/usuario/login',usuario)
       .then(res=>{
-        alert(res.data.token);
+        setMensajePup("Ingresaste correctamente.")
+        setSeverity("success");
+        setOpen(true);
       })
       .catch(err=>{
+        setMensajePup("La contraseña y/o el usuario, son invalidos")
         setSeverity("error");
         setOpen(true);
       });
@@ -138,7 +142,7 @@ export default function Login() {
         </Grid>
         <Snackbar anchorOrigin={{vertical: 'bottom',horizontal: 'center'}}  open={open} autoHideDuration={4000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
-          La contraseña y/o el usuario, son invalidos
+          {mensajePup}
         </Alert>
       </Snackbar>
       </ThemeProvider>

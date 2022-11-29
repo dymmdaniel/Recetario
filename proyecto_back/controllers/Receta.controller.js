@@ -45,6 +45,7 @@ exports.findOne = function(req,res){
     })
 }
 
+
 exports.update = function(req,res){
     let receta = {
         clasificacionId: req.body.clasificacionId,
